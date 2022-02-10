@@ -1,0 +1,407 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hola
+    - hey
+    - hello!
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+
+- intent: search_restaurant
+  examples: |
+    - Looking out for some good restaurants
+    - Looking out for restaurants
+    - show me [indian](cuisine) restaurant
+    - show me [chinese](cuisine) restaurant
+    - show me [thai](cuisine) restaurant
+    - show me [italian](cuisine) restaurant
+    - some good restaurants in [kolkata](location)
+    - good [chinese](cuisine) restaurants in [chandigarh](location)
+    - i am lloking for restaurant
+    - i'm looking for place to eat
+    - i want to grab a dinner
+    - i want to grab a lunch
+    - i am searching for a place to eat
+    - i am going for date with my x find me a good place to eat
+    - i am looking for some restaurants in [Haryana](location)
+    - i am looking for some restaurants in [Bangalore](location)
+    - search for restatrantuts
+    - search for restaurants
+    - [Punjabi](cuisine)
+    - [South Indian](cuisine)
+    - [North Indian](cuisine)
+    - [Italian](cuisine)
+    - [Chinese](cuisine)
+    - [chinese](cuisine)
+    - [Haryana](location)
+    - [Mumbai](location)
+    - [Karnal](location)
+    - [delhi](location)
+    - I want to know [low](budget) priced [italian](cuisine) restaurants
+    - show me [low](budget) budget [chinese](cuisine) restaurants in [delhi](location)
+    - show me [medium](budget) budget [italian](cuisine) restaurants in [haryana](location)
+    - show me [costly](budget) [north indian](cuisine) restaurants in [Hyderabad](location)
+    - I am hungry ass
+    - find me a place to eat yr
+    - khana khana hae
+    - khana khila do
+    - find [medium](budget) cost [south indian](cuisine) restaurants in [Bangalore](location)
+    - find [expensive](budget) restaurants in [Mumbai](location)
+    - find [costly](budget) restaurants in [Delhi](location)
+    - [high](budget)
+    - garib hu sasta restaurant dikha do
+    - salary nahi ayi sasta restaurant dikhana
+    - salary khatam hogi sasta restaurant dikhado
+    - [low](budget)
+    - [medium](budget)
+    - [punjabi](cuisine)
+    - [mexican](cuisine)
+
+
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - yep
+    - yeah
+    - that's right
+    - ok
+    - great
+    - right, thank you
+    - great choice
+
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- synonym: chinese
+  examples: |
+    - chineeese
+    - chini
+    - chinesse
+
+- synonym: low
+  examples: |
+    - sasta
+    - less than 300 rupees
+    - cheap food
+    - garibo ka khana
+    - dal roti khila do
+    - inexpensive
+    - less than 300
+    - cost under 300
+    - Lesser than Rs. 300
+    - less than Rs.300
+    - Lessthan Rs. 300
+    - lessthan Rs. 300
+    - lessthan Rs.300
+    - Lessthan Rs.300
+    - Lesser than 300
+    - lesser than 300
+    - Lesserthan 300
+    - lesserthan 300
+    - Less than 300
+    - lessthan 300
+    - Lessthan 300
+    - Lesser than Rs.300
+    - lesser than Rs. 300
+    - lesser than Rs.300
+    - Lesserthan Rs. 300
+    - lesserthan Rs. 300
+    - lesserthan Rs.300
+    - Lesserthan Rs.300
+    - Less than Rs. 300
+    - Less than Rs.300
+    - less than Rs. 300
+
+- synonym: medium
+  examples: |
+    - moderaate
+    - jada mehnga nahi
+    - thik thak
+    - 500 tak
+    - middle class food
+    - moderately
+    - mid
+    - average
+    - in range of 300 to 700
+    - 300 to 700
+    - Rs. 300 to Rs. 700
+    - Rs.300 to Rs. 700
+    - Rs. 300 to Rs.700
+    - Rs.300 to 700
+    - 300 to Rs.700
+    - 300 to Rs. 700
+    - Rs.300 to 700
+
+- synonym: high
+  examples: |
+    - mehnga
+    - super costly
+    - amir logo ka budget
+    - money no issue
+    - expensive
+    - costly
+    - More than 700
+    - greater than 700
+    - 700 or more
+    - luxury life luxurious food
+    - luxurious
+    - Morethan 700
+    - Morethan Rs.700
+    - Morethan Rs. 700
+    - morethan 700
+    - morethan Rs.700
+    - morethan Rs. 700
+    - More than Rs.700
+    - More than Rs. 700
+    - more than 700
+    - more than Rs.700
+    - more than Rs. 700
+
+- intent: email_id
+  examples: |
+    - yes. its [karan@gmail.com](email)
+    - yes. Please send it to [pooja@gmail.com](email)
+    - [deep@gmail.com](email)
+    - [asdppdeep@gmail.com](email)
+    - yes send me at [dpsdeep@gmail.com](email)
+    - email id : [abc@gmail.com](email)
+    - my email id is [abcd@gmail.com](email)
+    - email id is [red@gmail.com](email)
+    - yes. Please send it to [asdasdasd@asdsad.com](email)
+    - [123123asdasdasd.asd2@yahoo.co.in](email)
+    - [abc.def@rediffmail.com](email)
+    - [xyz@upgrad.com](email)
+
+
+- synonym: Ahmedabad
+  examples: |
+   - Ahmdabad
+   - Amdavad
+
+- synonym: Bangalore
+  examples: |
+   - bengaluru
+   - Bengaluru
+   - banglore
+   - bangalore
+   - Banglore
+
+
+- synonym: New Delhi
+  examples: |
+   - Delhi
+   - delhi
+   - Dilli
+   - dilli
+   - NewDelhi
+   - newdelhi
+
+- synonym: Gurgaon
+  examples: |
+   - gurgaon
+   - Gudgaon
+   - gudgaon
+
+- synonym: Noida
+  examples: |
+   - noida
+
+- synonym: Faridabad
+  examples: |
+   - faridabad
+   - fridabad
+   - Fridabad
+
+- synonym: Noida
+  examples: |
+   - faridabad
+   - fridabad
+   - Fridabad
+
+- synonym: Allahabad
+  examples: |
+   - Allahbad
+   - allahabad
+   - Ilahabad
+   - ilahabad
+
+- synonym: Mangalore
+  examples: |
+   - Manglore
+   - mangalore
+   - manglore
+
+
+- synonym: Mumbai
+  examples: |
+   - mumbai
+   - Bombay
+   - bombay
+
+
+- synonym: Ranchi
+  examples: |
+   - ranchi
+
+- synonym: Patna
+  examples: |
+   - patna
+   - Ptna
+   - ptna
+
+- synonym: Mysore
+  examples: |
+   - mysore
+   - Mysore
+   - Mysuru
+   - mysuru
+
+- synonym: Aurangabad
+  examples: |
+   - aurangabad
+   - Orungabad
+   - orungabad
+
+- synonym: Amritsar
+  examples: |
+   - amritsar
+   - amritsr
+   - Amritsr
+
+- synonym: Puducherry
+  examples: |
+   - puducherry
+   - pondicherry
+   - Pondicherry
+
+
+- synonym: Varanasi
+  examples: |
+   - varanasi
+   - Banaras
+   - banaras
+   - Bnaras
+   - bnaras
+
+- synonym: Nagpur
+  examples: |
+   - nagpur
+   - Nagpoor
+   - nagpoor
+
+- synonym: Dehradun
+  examples: |
+   - dehradun
+   - Dehradoon
+   - dehradoon
+
+
+- synonym: Vadodara
+  examples: |
+   - vadodara
+   - baroda
+   - Baroda
+
+
+- synonym: Vizag
+  examples: |
+   - vizag
+   - Visag
+   - visag
+
+
+- synonym: Agra
+  examples: |
+   - agra
+   - Aagraa
+   - agraa
+
+- synonym: Ludhiana
+  examples: |
+   - ludhiana
+   - Ludiana
+   - ludhiana
+
+

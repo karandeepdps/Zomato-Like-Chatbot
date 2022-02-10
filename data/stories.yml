@@ -1,0 +1,571 @@
+version: "2.0"
+
+stories:
+
+- story: happy_path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_restaurant
+  - action: utter_which_location
+  - action: action_check_location
+  - slot_was_set:
+    - check_resp : true 
+  - intent: search_restaurant
+    entities:
+    - location : "delhi"
+  - slot_was_set:
+    - location : delhi
+  - action: utter_ask_cuisine
+  - intent: search_restaurant
+    entities:
+    - cuisine : "chinese"
+  - slot_was_set:
+    - cuisine : chinese
+  - action: utter_ask_budget
+  - intent: search_restaurant
+    entities:
+    - budget : "High"
+  - slot_was_set:
+    - budget : High 
+  - action: utter_ok_location
+  - action : action_search_restaurant
+  - action : utter_ask_shall_i_mail
+  - intent : email_id
+    entities:
+    - email : dps@gmail.com
+  - slot_was_set:
+    - email : dps@gmail.com
+  - action: action_send_email
+  - action: utter_ok_email
+  - action: action_reset_all_slots
+  - action: utter_goodbye
+
+
+- story: happy_path_deny_email
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_restaurant
+  - action: utter_which_location
+  - action: action_check_location
+  - slot_was_set:
+    - check_resp : true 
+  - intent: search_restaurant
+    entities:
+    - location : "delhi"
+  - slot_was_set:
+    - location : delhi
+  - action: action_check_location
+  - action: utter_ask_cuisine
+  - intent: search_restaurant
+    entities:
+    - cuisine : "chinese"
+  - slot_was_set:
+    - cuisine : chinese
+  - action: utter_ask_budget
+  - intent: search_restaurant
+    entities:
+    - budget : "High"
+  - slot_was_set:
+    - budget : High 
+  - action: utter_ok_location
+  - action : action_search_restaurant
+  - action : utter_ask_shall_i_mail
+  - intent : deny
+  - action: action_reset_all_slots
+  - action: utter_goodbye
+
+
+- story: ask_for_new_location
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_restaurant
+  - action: utter_which_location
+  - action: action_check_location
+  - slot_was_set:
+    - check_resp : false 
+  - action: action_reset_all_slots
+  - intent: search_restaurant
+  - action: utter_which_location
+  - action: action_check_location
+  - slot_was_set:
+    - check_resp : true 
+  - intent: search_restaurant
+    entities:
+    - location : "delhi"
+  - slot_was_set:
+    - location : delhi
+  - action: utter_ask_cuisine
+  - intent: search_restaurant
+    entities:
+    - cuisine : "chinese"
+  - slot_was_set:
+    - cuisine : chinese
+  - action: utter_ask_budget
+  - intent: search_restaurant
+    entities:
+    - budget : "Low"
+  - slot_was_set:
+    - budget : Low 
+  - action: action_check_location
+  - slot_was_set:
+    - check_resp : true 
+  - action: utter_ok_location
+  - action : action_search_restaurant
+  - action : utter_ask_shall_i_mail
+  - intent : email_id
+    entities:
+    - email : dps@gmail.com
+  - slot_was_set:
+    - email : dps@gmail.com
+  - action: action_send_email
+  - action: utter_ok_email
+  - action: action_reset_all_slots
+  - action: utter_goodbye
+
+
+
+
+
+- story: ask_for_new_location_deny_email
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_restaurant
+  - action: utter_which_location
+  - action: action_check_location
+  - slot_was_set:
+    - check_resp : false 
+  - action: action_reset_all_slots
+  - intent: search_restaurant
+  - action: utter_which_location
+  - action: action_check_location
+  - slot_was_set:
+    - check_resp : true 
+  - intent: search_restaurant
+    entities:
+    - location : "delhi"
+  - slot_was_set:
+    - location : delhi
+  - action: utter_ask_cuisine
+  - intent: search_restaurant
+    entities:
+    - cuisine : "chinese"
+  - slot_was_set:
+    - cuisine : chinese
+  - action: utter_ask_budget
+  - intent: search_restaurant
+    entities:
+    - budget : "Low"
+  - slot_was_set:
+    - budget : Low 
+  - action: action_check_location
+  - slot_was_set:
+    - check_resp : true 
+  - action: utter_ok_location
+  - action : action_search_restaurant
+  - action : utter_ask_shall_i_mail
+  - intent : deny
+  - action: action_reset_all_slots
+  - action: utter_goodbye
+
+# - story: handleUserAffirm2
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: search_restaurant
+#   - action: utter_which_location
+#   - action: action_check_location
+#   - slot_was_set:
+#     - check_resp : true 
+#   - intent: search_restaurant
+#     entities:
+#     - location : "delhi"
+#   - slot_was_set:
+#     - location : delhi
+#   - action: utter_ask_cuisine
+#   - intent: search_restaurant
+#     entities:
+#     - cuisine : "chinese"
+#   - slot_was_set:
+#     - cuisine : chinese
+#   - action: utter_ask_budget
+#   - intent: search_restaurant
+#     entities:
+#     - budget : "Medium"
+#   - slot_was_set:
+#     - budget : Medium 
+#   - action: utter_ok_location
+#   - action : action_search_restaurant
+#   - action : utter_ask_shall_i_mail
+#   - intent : email_id
+#     entities:
+#     - email : dps@gmail.com
+#   - slot_was_set:
+#     - email : dps@gmail.com
+#   - action: action_send_email
+#   - action: utter_ok_email
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+
+
+# - story: handleUserAffirm3
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: search_restaurant
+#   - action: utter_which_location
+#   - action: action_check_location
+#   - slot_was_set:
+#     - check_resp : true 
+#   - intent: search_restaurant
+#     entities:
+#     - location : "delhi"
+#   - slot_was_set:
+#     - location : delhi
+#   - action: utter_ask_cuisine
+#   - intent: search_restaurant
+#     entities:
+#     - cuisine : "chinese"
+#   - slot_was_set:
+#     - cuisine : chinese
+#   - action: utter_ask_budget
+#   - intent: search_restaurant
+#     entities:
+#     - budget : "Low"
+#   - slot_was_set:
+#     - budget : Low 
+#   - slot_was_set:
+#     - check_resp : true 
+#   - action: utter_ok_location
+#   - action : action_search_restaurant
+#   - action : utter_ask_shall_i_mail
+#   - intent : email_id
+#     entities:
+#     - email : dps@gmail.com
+#   - slot_was_set:
+#     - email : dps@gmail.com
+#   - action: action_send_email
+#   - action: utter_ok_email
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+
+
+
+# - story: handleUserAffirm6
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: search_restaurant
+#   - action: utter_which_location
+#   - action: action_check_location
+#   - slot_was_set:
+#     - check_resp : true 
+#   - intent: search_restaurant
+#     entities:
+#     - location : "delhi"
+#   - slot_was_set:
+#     - location : delhi
+#   - action: utter_ask_cuisine
+#   - intent: search_restaurant
+#     entities:
+#     - cuisine : "chinese"
+#   - slot_was_set:
+#     - cuisine : chinese
+#   - action: utter_ask_budget
+#   - intent: search_restaurant
+#     entities:
+#     - budget : "Medium"
+#   - slot_was_set:
+#     - budget : Medium 
+#   - action: action_check_location
+#   - action: utter_ok_location
+#   - action : action_search_restaurant
+#   - action : utter_ask_shall_i_mail
+#   - intent : deny
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+
+
+# - story: handleUserAffirm7
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: search_restaurant
+#   - action: utter_which_location
+#   - action: action_check_location
+#   - slot_was_set:
+#     - check_resp : true 
+#   - intent: search_restaurant
+#     entities:
+#     - location : "delhi"
+#   - slot_was_set:
+#     - location : delhi
+#   - action: utter_ask_cuisine
+#   - intent: search_restaurant
+#     entities:
+#     - cuisine : "chinese"
+#   - slot_was_set:
+#     - cuisine : chinese
+#   - action: utter_ask_budget
+#   - intent: search_restaurant
+#     entities:
+#     - budget : "Low"
+#   - slot_was_set:
+#     - budget : Low 
+#   - action: action_check_location
+#   - slot_was_set:
+#     - check_resp : true 
+#   - action: utter_ok_location
+#   - action : action_search_restaurant
+#   - action : utter_ask_shall_i_mail
+#   - intent : deny
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+
+
+
+
+
+
+# version: "2.0"
+
+# stories:
+
+# - story: restaurant_search_low_delhi_chinese
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: search_restaurant
+#   - action: utter_which_location
+#   - intent: search_restaurant
+#     entities:
+#     - location : "delhi"
+#   - slot_was_set:
+#     - location : delhi
+#   - action: utter_ask_cuisine
+#   - intent: search_restaurant
+#     entities:
+#     - cuisine : "Chinese"
+#   - slot_was_set:
+#     - cuisine : Chinese
+#   - action: utter_ask_budget
+#   - intent: low
+#   - action: action_check_location
+#   - slot_was_set:
+#     - check_resp : true
+#   - action: utter_ok_location
+#   - action : action_search_restaurant_low
+#   - intent : email_id
+#     entities:
+#     - email : dps@gmail.com
+#   - slot_was_set:
+#     - email : dps@gmail.com
+#   - action: action_send_email
+#   - action: utter_ok_email
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+# - story: restaurant_search_low_delhi_Mexican
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: search_restaurant
+#   - action: utter_which_location
+#   - intent: search_restaurant
+#     entities:
+#     - location : "delhi"
+#   - slot_was_set:
+#     - location : delhi
+#   - action: utter_ask_cuisine
+#   - intent: search_restaurant
+#     entities:
+#     - cuisine : "Mexican"
+#   - slot_was_set:
+#     - cuisine : Mexican
+#   - action: utter_ask_budget
+#   - intent: low
+#   - action: action_check_location
+#   - slot_was_set:
+#     - check_resp : true
+#   - action: utter_ok_location
+#   - action : action_search_restaurant_low
+#   - intent : email_id
+#     entities:
+#     - email : dps@gmail.com
+#   - slot_was_set:
+#     - email : dps@gmail.com
+#   - action: action_send_email
+#   - action: utter_ok_email
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+
+# - story: restaurant_search_low_delhi_Italian
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: search_restaurant
+#   - action: utter_which_location
+#   - intent: search_restaurant
+#     entities:
+#     - location : "delhi"
+#   - slot_was_set:
+#     - location : delhi
+#   - action: utter_ask_cuisine
+#   - intent: search_restaurant
+#     entities:
+#     - cuisine : "Italian"
+#   - slot_was_set:
+#     - cuisine : Italian
+#   - action: utter_ask_budget
+#   - intent: low
+#   - action: action_check_location
+#   - slot_was_set:
+#     - check_resp : true
+#   - action: utter_ok_location
+#   - action : action_search_restaurant_low
+#   - intent : email_id
+#     entities:
+#     - email : dps@gmail.com
+#   - slot_was_set:
+#     - email : dps@gmail.com
+#   - action: action_send_email
+#   - action: utter_ok_email
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+
+# - story: restaurant_search_low_delhi_American
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: search_restaurant
+#   - action: utter_which_location
+#   - intent: search_restaurant
+#     entities:
+#     - location : "delhi"
+#   - slot_was_set:
+#     - location : delhi
+#   - action: utter_ask_cuisine
+#   - intent: search_restaurant
+#     entities:
+#     - cuisine : "American"
+#   - slot_was_set:
+#     - cuisine : American
+#   - action: utter_ask_budget
+#   - intent: low
+#   - action: action_check_location
+#   - slot_was_set:
+#     - check_resp : true
+#   - action: utter_ok_location
+#   - action : action_search_restaurant_low
+#   - intent : email_id
+#     entities:
+#     - email : dps@gmail.com
+#   - slot_was_set:
+#     - email : dps@gmail.com
+#   - action: action_send_email
+#   - action: utter_ok_email
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+# - story: restaurant_search_low_delhi_Thai
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: search_restaurant
+#   - action: utter_which_location
+#   - intent: search_restaurant
+#     entities:
+#     - location : "delhi"
+#   - slot_was_set:
+#     - location : delhi
+#   - action: utter_ask_cuisine
+#   - intent: search_restaurant
+#     entities:
+#     - cuisine : "Thai"
+#   - slot_was_set:
+#     - cuisine : Thai
+#   - action: utter_ask_budget
+#   - intent: low
+#   - action: action_check_location
+#   - slot_was_set:
+#     - check_resp : true
+#   - action: utter_ok_location
+#   - action : action_search_restaurant_low
+#   - intent : email_id
+#     entities:
+#     - email : dps@gmail.com
+#   - slot_was_set:
+#     - email : dps@gmail.com
+#   - action: action_send_email
+#   - action: utter_ok_email
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+
+# - story: restaurant_search_low_delhi_North Indian
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: search_restaurant
+#   - action: utter_which_location
+#   - intent: search_restaurant
+#     entities:
+#     - location : "delhi"
+#   - slot_was_set:
+#     - location : delhi
+#   - action: utter_ask_cuisine
+#   - intent: search_restaurant
+#     entities:
+#     - cuisine : "North Indian"
+#   - slot_was_set:
+#     - cuisine : North Indian
+#   - action: utter_ask_budget
+#   - intent: low
+#   - action: action_check_location
+#   - slot_was_set:
+#     - check_resp : true
+#   - action: utter_ok_location
+#   - action : action_search_restaurant_low
+#   - intent : email_id
+#     entities:
+#     - email : dps@gmail.com
+#   - slot_was_set:
+#     - email : dps@gmail.com
+#   - action: action_send_email
+#   - action: utter_ok_email
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+
+# - story: restaurant_dont_operate
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: search_restaurant
+#   - action: utter_which_location
+#   - intent: search_restaurant
+#     entities:
+#     - location : "delhi"
+#   - slot_was_set:
+#     - location : delhi
+#   - action: utter_ask_cuisine
+#   - intent: search_restaurant
+#     entities:
+#     - cuisine : "chinese"
+#   - slot_was_set:
+#     - cuisine : chinese
+#   - action: utter_ask_budget
+#   - intent: low
+#   - action: action_check_location
+#   - slot_was_set:
+#     - check_resp : false
+#   - action: utter_we_dont_operate
